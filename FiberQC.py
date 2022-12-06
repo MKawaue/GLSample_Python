@@ -137,6 +137,13 @@ def measurement():
     #LED ON
     switch_PS(tcp_LED,"ON")
 
+    file_name = "run_number.txt"
+    f_RN = open(file_name,"r")
+    run_num = int(f_RN.read())
+    f_RN.close()
+    f_RN = open(file_name,"w")
+    f.write(str(run_num+1))
+    f_RN.close()
     file_name = "../GL840_data/test.csv"
     f = open(file_name,"w")
     #Buffer Clear
@@ -179,6 +186,7 @@ def measurement():
             print("\r","Progress : ",i,"% / 100%",end="")
     #Stop Recording
     print("\nData Taking was done.")
+    print("{0} was saved.".format(file_name))
     f.close()
 
 
