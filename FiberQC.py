@@ -9,6 +9,7 @@ System requirements (software)
 """
 import time
 import pdb
+import os
 from tcp import Tcp
 
 #GLOBAL CONSTANT
@@ -135,7 +136,7 @@ def measurement():
     #Start Recording
     #Stop Recording
     #LED ON
-    switch_PS(tcp_LED,"ON")
+    #switch_PS(tcp_LED,"ON")
 
     file_name = "run_number.txt"
     f_RN = open(file_name,"r")
@@ -164,6 +165,8 @@ def measurement():
     print(msgBuf)
     for i in range(int(NSAMP)+1):
         #if i % 2 == 0 :
+        if i==10 :
+            switch_PS(tcp_LED,"ON")
         data = ""
         data = tcp_logger.send_read_command(":MEAS:OUTP:ONECSV?", Timeout_default)
         #print("kokokara\n")
