@@ -1,4 +1,4 @@
-#How to use FiberQC.py1
+# How to use FiberQC.py
 run
 ```
 python3 FiberQC.py
